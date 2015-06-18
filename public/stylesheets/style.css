@@ -9,3 +9,38 @@ section > div        { padding: 20px; }
 header, nav, section { background: #eee; text-align: center;}
 footer               { background: #eee; text-align: center;}
 nav span             { margin: 0px 10px 0px 0px;}
+
+
+
+#miFoto{
+    width: 120px;
+    height:100px;
+    left:5px;
+    top:5px;
+    font-size: 15px;
+    color: black;
+    text-align:center;
+
+    background: url('../images/myP.jpg');
+    background-size: 100% 100%;
+
+    position: relative;
+
+    border: 1px solid white;
+    border-radius: 0px 10px 0px 10px;
+    box-shadow: 0px 0px 10px white;
+    -webkit-box-shadow: 0px 0px 10px white;
+    -o-box-shadow: 0px 0px 10px white;
+    -moz-box-shadow: 0px 0px 10px white;
+}
+
+#aut{
+    text-align:left;
+}
+
+#vid{
+    position: relative;
+    top:10px;
+    text-align:left;
+}
+

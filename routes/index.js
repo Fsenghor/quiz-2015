@@ -15,4 +15,15 @@ router.get('/', function(req, res) {
 router.get('/quizes/question', quizController.question);
 router.get('/quizes/answer', quizController.answer);
 
+
+/* GET author */
+router.get('/author', function(req, res) {
+
+  res.render('author', { title: 'Franck Senghor' });
+});
+
+
+
+
 module.exports = router;
+
