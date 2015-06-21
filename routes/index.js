@@ -10,6 +10,9 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Quiz' });
 });
 
+// Comands autoload with :quizId   executing before needed by routes show & answer
+router.param('quizId', quizController.load);  //autoload--> only if quizId exist in http header: param, query, body
+//if param quizID exist in route/path then --> autoload execute
 
 // Def route  --> /quizes
 router.get('/quizes',                      quizController.index);
