@@ -87,16 +87,16 @@ exports.load = function(req, res, next, quizId) {
     quiz
     .validate()
     .then(
-        function(err){
-              if (err) {
-                    res.render('quizes/new', {quiz: quiz, errors: err.errors});
-                  } else {
-                    quiz //save in  DB los fields pregunta & respuesta --> quiz
-                    .save({fields: ["pregunta", "respuesta"]})
-                    .then( function(){ res.redirect('/quizes')})
-                  }      //res.redirect: Redirect  HTTP (relative URL) a questions list
-          }
-      );
+            function(err){
+                  if (err) {
+                        res.render('quizes/new', {quiz: quiz, errors: err.errors});
+                      } else {
+                        quiz //save in  DB los fields pregunta & respuesta --> quiz
+                        .save({fields: ["pregunta", "respuesta"]})
+                        .then( function(){ res.redirect('/quizes')})
+                      }      //res.redirect: Redirect  HTTP (relative URL) a questions list
+            }
+         ).catch(function(error){next(error)});
 };
 
 
@@ -125,7 +125,14 @@ exports.load = function(req, res, next, quizId) {
                         .save( {fields: ["pregunta", "respuesta"]})
                         .then( function(){ res.redirect('/quizes');});
                       }     //res.redirect: Redirect  HTTP (relative URL) a questions list
-                }
-          );
+            }
+        ).catch(function(error){next(error)});
     };
 
+
+         //DELETE /quizes/:id
+     exports.destroy = function(req, res) {
+      req.quiz.destroy().then( function() {
+            res.redirect('/quizes');
+          }).catch(function(error){next(error)});
+      }
