@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
             },
             tema: {
                 type: DataTypes.STRING,
-                validate: {notEmpty: {msg: "-> Falta Tema"}}//"Falta Tema" :default is "Otro"useless validation, 
+                validate: {notEmpty: {msg: "-> Falta Tema"}}//"Falta Tema" :default is "Otro"useless validation,
                 //KEEP statement otherwise ERROR type UNDEFINED!!!
             }
         }
