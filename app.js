@@ -25,7 +25,7 @@ app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser('Quiz 2015'));
+app.use(cookieParser('Quiz 2015'));// SEED 'Quiz 2015' is used for improving cookies random codificaction
 app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));

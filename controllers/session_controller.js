@@ -2,8 +2,20 @@
  * Created by franck on 25/06/15.
  */
 
+
+        //restricted  HTTP access authorization MW
+        exports.loginRequired = function(req, res, next){
+        if (req.session.user) {
+                next();
+            } else {
+                res.redirect('/login');
+            }
+    };
+
+
+
        //Get /login :login form
-exports.new = function(req, res) {
+        exports.new = function(req, res) {
         var errors = req.session.errors || {};
         req.session.errors = {};
 
