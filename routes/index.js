@@ -4,6 +4,7 @@ var router = express.Router();
 
 var quizController = require('../controllers/quiz_controller');
 var commentController = require('../controllers/comment_controller');
+var sessionController = require('../controllers/session_controller');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -14,6 +15,12 @@ router.get('/', function(req, res) {
 // Comands autoload with :quizId   executing before needed by routes show & answer
 router.param('quizId', quizController.load);  //autoload--> only if quizId exist in http header: param, query, body
 //if param quizID exist in route/path then --> autoload execute
+
+// Definición de rutas de sesion
+router.get('/login',  sessionController.new);     //form login
+router.post('/login', sessionController.create);  //create session
+router.get('/logout', sessionController.destroy); //destroy session
+
 
 // Def route  --> /quizes
 router.get('/quizes',                      quizController.index);
