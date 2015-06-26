@@ -4,11 +4,11 @@
 
 var models = require('../models/models.js');
 
-        // Autoload :comments id
+        // Autoload :comments id ,  (pre load the comment if route has a comment identifier)
         exports.load = function(req, res, next, commentId) {
-              models.Comment.find({
+              models.Comment.find({ //give access to comments table
                             where: {
-                                id: Number(commentId)
+                                id: Number(commentId)  //transform identifier to NUMBER for javascript
                             }
                     }).then(function(comment) {
                       if (comment) {
