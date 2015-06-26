@@ -37,11 +37,11 @@
                         return;
                     }
 
-                        //Create req.session.user & save fields   id  &  username
+                        //Create req.session.user & save fields   id  &  username & lastClickTime
                         //session is defined by existence of:    req.session.user
-                            req.session.user = {id:user.id, username:user.username};
+                       req.session.user = {id:user.id, username:user.username, lastClickTime:new Date().getTime()};
 
-                    res.redirect(req.session.redir.toString());//redirect to path anterior before login
+                       res.redirect(req.session.redir.toString());//redirect to path anterior before login
             });
     };
 
