@@ -56,7 +56,7 @@ exports.Quiz = Quiz;
 sequelize.sync().then(function() { //sequelize.sync() create & initialize quest table  in DB
     //then(..) execut callback when table is created
     Quiz.count().then(function (count){
-        if(count === 0) {   // table se initialized if empty
+        if(count === 0) {   // table initialized if empty
 
             Quiz.create({ pregunta: 'Capital de Italia',
                 respuesta: 'Roma',

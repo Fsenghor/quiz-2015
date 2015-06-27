@@ -4,7 +4,6 @@
 
 var models = require('../models/models.js');
 
-
       // Autoloadcode fact if route include: quizId= identifier of object to pre load from data base
       exports.load = function(req, res, next, quizId) {
           models.Quiz.find({
@@ -24,14 +23,13 @@ var models = require('../models/models.js');
       };
 
 
-
 //GET /quizes
     exports.index = function(req, res) {
 
     var searchP = req.query.search || "";//initialized with searchValue or emptyString
         searchP = "%" + searchP.replace(/\s/g, "%") + "%";//string surrounded by %, & space replace by %
 
-    models.Quiz.findAll( {where: ["pregunta like ?", searchP],order: ['pregunta']} ).then(   //search in aphabetic position
+    models.Quiz.findAll( {where: ["pregunta like ?", searchP],order: ['pregunta']} ).then(   //search in alphabetic position
 
             function(quizes) {
                 res.render('quizes/index.ejs', {quizes: quizes, errors: []});
@@ -128,3 +126,5 @@ var models = require('../models/models.js');
             res.redirect('/quizes');
           }).catch(function(error){next(error)});
       }
+
+
